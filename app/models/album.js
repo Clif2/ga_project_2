@@ -1,8 +1,9 @@
+'use strict'
 const mongoose = require('mongoose');
-      Schema   = mongoose.Schema
+const Schema   = mongoose.Schema
 
 let albumSchema = new Schema ({
-  name = String 
+  name : String 
 })
 
 let Album = mongoose.model('Album', albumSchema)

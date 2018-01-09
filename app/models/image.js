@@ -1,11 +1,12 @@
+'use strict'
 const mongoose = require('mongoose')
-      Schema   = mongoose.Schema
-      ObjectId = Schema.Types.ObjectId
+const Schema   = mongoose.Schema
+const ObjectId = Schema.Types.ObjectId
 
 let imageSchema = new Schema ({
-  url = String 
-  albums = [{
-    type: ObjectId
+  url           : String,
+  albums        : [{
+    type: ObjectId,
     ref: 'Album'
   }]
 })
