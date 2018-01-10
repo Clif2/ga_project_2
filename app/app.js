@@ -9,8 +9,8 @@ const pug = require('pug')
 
 /* Variables */ 
 
-var routes = require('./routes')
-var images = require('./routes/imageRoutes')
+//var routes = require('./routes')
+//var images = require('./routes/imageRoutes')
 
 var app  = express()
 var port = process.env.PORT || 8080
@@ -29,14 +29,14 @@ app.get('/', (req, res) => {
 
 /* Middleware */
 
-app.use(parser.urlendcoded ({extended: true}))
-app.use(parser.json())
-app.use(cor())
+app.use(bodyParser.urlencoded ({extended: true}))
+app.use(bodyParser.json())
+app.use(cors())
 
 /* Connect Routes */
-
-app.use('/', routes)
-app.use('/images', images)
+const imageController = require('./controllers/imageController')
+app.use('/', imageController)
+//app.use('/images', images)
 
 
 /* Server */

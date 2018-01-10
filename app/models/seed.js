@@ -4,9 +4,7 @@ var mongoose = require('mongoose')
 let Album = require('./album')
 let Image = require('./image')
 
-
-mongoose.connect('mongodb://localhost/proj2', {useMongoClient : true })
-mongoose.Promise = Promise
+const db = require('./connection')
 
 // init Albums and Images 
 
@@ -45,12 +43,12 @@ Album
       .then (() => {
         imgs.forEach((img, index) => { 
           if (index % 2 == 0) { 
-            img.albums.push(a1, a3)
+           // img.albums.push(a1, a3)
             img.save()
             console.log(img.url + 'added to db')
           }     
           else { 
-            img.albums.push(a2, a3) 
+          //  img.albums.push(a2, a3) 
             img.save() 
             console.log(img.url+ 'added to db')
           }
