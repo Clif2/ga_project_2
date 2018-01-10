@@ -2,16 +2,19 @@
 
 const express = require('express')
 const mongoose = require('mongoose')
-const Image = ('../models/image')
-
+const Image = require('../models/album.js')
 
 //index
-exports.all = function (req, res) {
- res.send('BOOM')
+exports.all = (req, res) => {
+  Image.findOne({}, (err, image) => {
+    if (err) 
+      res.send(err)
+    res.json(image)
+  })
 }
   //create
   
-  //update
+ // u/pdate
 
   //delete
 
