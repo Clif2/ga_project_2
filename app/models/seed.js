@@ -5,27 +5,61 @@ let Album = require('./album')
 let Image = require('./image')
 
 
-mongoose.connect('mongodb://localhost:8080/proj2', {useMongoClient : true })
-mongoose.Promise = Rromise
+mongoose.connect('mongodb://localhost/proj2', {useMongoClient : true })
+mongoose.Promise = Promise
 
-let albumOne = new Album ({
-  name: 'Test Album'
-})
+// init Albums and Images 
 
-albumOne.save((err) => {
-  console.log(`${albumOne} : has been saved`)
-})
+let a1 = new Album ({ name: 'Test Album 1' })
+let a2 = new Album ({ name: 'Test Album 2' })
+let a3 = new Album ({ name: 'Test Album 3' })
 
-let image = new Image ({
-  url : 'https://unsplash.com/photos/OqtafYT5kTw',
-  albums: [albumOne._id] 
-})
+let unsplash = 'https://source.unsplash.com/'
+let img1 = new Image ({ url : `${unsplash}WLUHO9A_xik` })
+let img2 = new Image ({ url : `${unsplash}VKwElWrPA` })
+let img3 = new Image ({ url : `${unsplash}EQmoufHLk` })
+let img4 = new Image ({ url : `${unsplash}QeVmJxZOv3k` })
+let img5 = new Image ({ url : `${unsplash}_UeY8aTI6d0` })
+let img6 = new Image ({ url : `${unsplash}w7ZyuGYNpRQ` })
+let img7 = new Image ({ url : `${unsplash}5Xwaj9gaR0g` })
+let img8 = new Image ({ url : `${unsplash}XJXWbfSo2f0` })
+let img9 = new Image ({ url : `${unsplash}68ZlATaVYIo` })
 
-image.save((err) => {
-  console.log(`${image} : pre populate`)
-  Image.find({})
-    .populate('albums')
-    .exec((err, images) => {
-      console.log(JSON.stringify(images, null, "\t"))
-    })
-})
+let albumsArr = [ a1, a2, a3 ]
+let imgs = [ img1, img2, img3, img4, img5, img6, img7, img8, img9 ]
+
+
+
+
+Album
+  .remove({})
+  .then(() => {
+    console.log('Albums Removed')
+  })
+  .then(() => {
+    Image.remove({}) 
+      .then(() => {
+        console.log('Images Removed')
+      })
+      .then (() => { albumsArr.forEach((a) => a.save()) } )
+      .then (() => {
+        imgs.forEach((img, index) => { 
+          if (index % 2 == 0) { 
+            img.albums.push(a1, a3)
+            img.save()
+            console.log(img.url + 'added to db')
+          }     
+          else { 
+            img.albums.push(a2, a3) 
+            img.save() 
+            console.log(img.url+ 'added to db')
+          }
+        })
+      })
+  })
+  .then (() => {
+     Image.find({})
+      .populate('albums')
+  })
+
+
