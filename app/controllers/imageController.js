@@ -2,7 +2,7 @@
 
 const express = require('express')
 const mongoose = require('mongoose')
-const Image = require('../models/album.js')
+const Image = require('../models/album.js )
 
 //index
 exports.all = (req, res) => {
