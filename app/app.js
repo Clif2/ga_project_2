@@ -35,7 +35,9 @@ app.use(cors())
 
 /* Connect Routes */
 const imageController = require('./controllers/imageController')
-app.use('/', imageController)
+app.use ('/', imageController)
+app.get('/images', imageController)
+
 //app.use('/images', images)
 
 

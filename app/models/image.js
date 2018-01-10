@@ -2,15 +2,15 @@
 
 const mongoose = require('./connection')
 const Schema   = mongoose.Schema
-//const ObjectId = Schema.Types.ObjectId
+const ObjectId = Schema.Types.ObjectId
 
 
 let imageSchema = new Schema ({
   url           : String,
-//  albums        : [{
-//    type: ObjectId,
-//    ref: 'Album'
-//  }]
+  albums        : [{
+    type: ObjectId,
+    ref: 'Album'
+  }]
 })
 
 

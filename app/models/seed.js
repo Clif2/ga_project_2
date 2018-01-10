@@ -29,7 +29,18 @@ let imgs = [ img1, img2, img3, img4, img5, img6, img7, img8, img9 ]
 
 // populate db
 
-Album
+
+//Image.remove({}).
+//  then(() => {
+//  imgs.forEach(function(img) {
+//    img.save() 
+//    console.log(img)
+//  }) 
+//})
+
+
+
+  Album
   .remove({})
   .then(() => {
     console.log('Albums Removed')
@@ -43,12 +54,12 @@ Album
       .then (() => {
         imgs.forEach((img, index) => { 
           if (index % 2 == 0) { 
-           // img.albums.push(a1, a3)
+            img.albums.push(a1, a3)
             img.save()
             console.log(img.url + 'added to db')
           }     
           else { 
-          //  img.albums.push(a2, a3) 
+            img.albums.push(a2, a3) 
             img.save() 
             console.log(img.url+ 'added to db')
           }
@@ -58,6 +69,6 @@ Album
   .then (() => {
      Image.find({})
       .populate('albums')
-  })
+ })
 
 

@@ -1,7 +1,7 @@
 'use strict'
 
 const express = require('express')
-const Image = require('../models/album')
+const Image = require('../models/image')
 
 const router = express.Router()
 
@@ -24,7 +24,9 @@ const router = express.Router()
 
 router.get('/images', (req, res) => {
   Image.
-    find({}).exec()
+    find({}).then( image => {
+      res.json(image)
+  })
     // then(results => res.json(results)).
      //catch(err => console.log(err))
     //lean().
