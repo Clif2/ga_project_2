@@ -22,6 +22,8 @@ app.get('/', (req, res) => {
   res.render('index', {title: 'Hello', message : 'Dirty Code to MVP'})
 })
 
+
+app.use(express.static(__dirname + '/public'))
 /* Database Connection */
 // moved to connection.js in models
 //mongoose.connect('mongodb://localhost:8080/proj2', {useMongoClient : true}) 
@@ -35,10 +37,12 @@ app.use(cors())
 
 /* Connect Routes */
 const imageController = require('./controllers/imageController')
+const albumController = require('./controllers/albumController')
 
 app.use ('/', imageController)
+app.use ('/', albumController)
 app.get('/images', imageController)
-
+app.get('/albums', albumController)
 //app.use('/images', images)
 
 
