@@ -3,8 +3,10 @@
 var express  = require('express')
 var mongoose = require('mongoose')
 
-
 /* Variables */ 
+
+var routes = require('./routes')
+var images = require('./routes/imageRoutes')
 
 var app  = express()
 var port = process.env.PORT || 8080
@@ -17,6 +19,8 @@ mongoose.Promise = Promise
 
 /* Connect Routes */
 
+app.use('/', routes)
+app.use('/images', images)
 
 
 /* Server */

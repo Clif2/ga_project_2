@@ -29,7 +29,7 @@ let albumsArr = [ a1, a2, a3 ]
 let imgs = [ img1, img2, img3, img4, img5, img6, img7, img8, img9 ]
 
 
-
+// populate db
 
 Album
   .remove({})
