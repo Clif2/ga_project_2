@@ -3,6 +3,7 @@
 
 const express  = require('express')
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const pug = require('pug')
@@ -27,7 +28,7 @@ app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.urlencoded ({extended: true}))
 app.use(bodyParser.json())
 app.use(cors())
-
+app.use(methodOverride('_method'))
 
 /* Routing */
 

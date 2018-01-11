@@ -1,0 +1,14 @@
+extend ./layout.pug
+
+block content 
+ main.container 
+  for im in images
+   a(href= '/images/' + im.id)
+    img.u-max-full-width(src= im.url)
+  form( 
+  action= '?_method=delete'
+  method= 'post'
+  )
+    button(type= 'submit') Delete
+ 
+ // img(src= val.url) 

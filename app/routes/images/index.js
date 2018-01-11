@@ -12,6 +12,22 @@ router.get( '/', ( req, res ) => {
       })
 })
 
+
+router.get('/:id', (req, res) =>{
+  Image.findOne({id : req.params.id}).
+  then ( image => {
+    res.render('singleImage', {url : image.url})
+  })
+})
+
+
+router.put('/:id', (req, res) =>{
+  Image.findOneAndUpdate({id : req.params.id}, req.body.note, {new : true}).
+  then ( image => {
+    res.redirect('/:id')
+  })
+})
+
 router.post('/', (req, res) => {
   Image.create(req.body.image).
   then(image => {
