@@ -36,8 +36,11 @@ app.use('/', index)
 
 
 /* Server */
+
+app.set('port', port)
+
 // spin up server
-app.listen(port, () => {
+app.listen(app.get('port'), () => {
   console.log(`\n ----------------------App listing on ${port}-----------------------`)
 })
   
