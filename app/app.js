@@ -9,25 +9,14 @@ const pug = require('pug')
 
 /* Variables */ 
 
-//var routes = require('./routes')
-//var images = require('./routes/imageRoutes')
-
-var app  = express()
-var port = process.env.PORT || 8080
+let app  = express()
+let port = process.env.PORT || 8080
 
 /* Views */
 
 app.set('view engine', 'pug')
-app.get('/', (req, res) => {
-  res.render('index', {title: 'Hello', message : 'Dirty Code to MVP'})
-})
-
 
 app.use(express.static(__dirname + '/public'))
-/* Database Connection */
-// moved to connection.js in models
-//mongoose.connect('mongodb://localhost:8080/proj2', {useMongoClient : true}) 
-//mongoose.Promise = Promise 
 
 /* Middleware */
 
@@ -35,21 +24,14 @@ app.use(bodyParser.urlencoded ({extended: true}))
 app.use(bodyParser.json())
 app.use(cors())
 
-/* Connect Routes */
-const imageController = require('./controllers/imageController')
-const albumController = require('./controllers/albumController')
+/* Routing */
 
-app.use ('/', imageController)
-app.use ('/', albumController)
-app.get('/images', imageController)
-app.get('/albums', albumController)
-//app.use('/images', images)
+let index = require('./routes/index')
+app.use('/', index)
 
 
 /* Server */
-
 // spin up server
-
 app.listen(port, () => {
   console.log(`\n ----------------------App listing on ${port}-----------------------`)
 })

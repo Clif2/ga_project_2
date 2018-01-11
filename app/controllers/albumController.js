@@ -8,7 +8,9 @@ const router = express.Router()
 //get all 
 router.get( '/albums', ( req, res ) => {
   Album.find({}).
-  then( album => { res.json( album )})
+  then( album => { 
+      res.render('index', {album})
+      })
 })
 
 //create
