@@ -1,16 +1,32 @@
-html
- head
-  title= title
-  link(href='https://fonts.googleapis.com/css?family=Raleway:400,300,600', rel='stylesheet', type='text/css')
-  link(rel='stylesheet', href='css/normalize.css')
-  link(rel='stylesheet', href='css/skeleton.css')
-  link(rel='stylesheet', href='css/custom.css')
+extend ./layout.pug
 
-  script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
-  link(rel='icon', type='image/png', href='images/favicon.png')
+block content
+  main.container
+    for albums in arr
+        h2
+          a(href= '/' + albums.name) #{albums.name}
+  div.one-third.column
+     form(
+      action= '/'
+      method= 'post'
+      )
+        input(
+        type= 'text'
+        name= 'album[name]'
+        )
+        button(type= 'submit') Add Album
 
- body
-  h1= message
-  ul
-  each val in #{album} 
-    li= val
+  //- if(!(i % 3))
+         if (i !=0)
+          | </div>
+        | <div class='row'>
+         p albums.name
+        else
+         p albums.name
+      i = i +1
+      if (arr.length > 0)
+        | </div>
+
+//- 
+  looping solution from here:
+  https://github.com/pugjs/pug/issues/910#issuecomment-14482795

@@ -1,5 +1,6 @@
 'use strict'
-const mongoose = require('mongoose');
+
+const mongoose = require('./connection');
 const Schema   = mongoose.Schema
 
 let albumSchema = new Schema ({

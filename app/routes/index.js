@@ -2,14 +2,13 @@
 
 const express = require('express')
 const routes = express.Router()
-
+const albums = require('./albums')
+const images = require('./images')
 
 // routes
-
-
+routes.use('/albums', albums)
+routes.use ('/images', images)
 // homepage 
-  routes.get( '/', ( req, res ) => {
-    res.render( 'index', { title: 'Express' })  
-  })
+routes.use('/', albums )
 
-module.export = routes 
+module.exports = routes 
