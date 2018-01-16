@@ -1,16 +1,14 @@
 # Project 2
 
 
-## A Image/Design
-
-## Motivation/Mood Board Project 
+## An Image/Design/Mood Board Project 
 
 This project is an attempt to remove a bit of resistance when it comes to developing a visual style and feel for my design work. 
 Currently its just has some CRUD functinality. More to come soon. 
 
 ## Video 
 
-![]()
+![](https://youtu.be/2Eo79irwFQo)
 
 ## Tech/framework used
 
