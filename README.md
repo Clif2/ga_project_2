@@ -8,7 +8,7 @@ Currently its just has some CRUD functinality. More to come soon.
 
 ## Video 
 
-![](https://youtu.be/2Eo79irwFQo)
+https://youtu.be/2Eo79irwFQo
 
 ## Tech/framework used
 
