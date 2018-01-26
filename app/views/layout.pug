@@ -17,10 +17,11 @@ html(lang= 'en')
     link(href='https://fonts.googleapis.com/css?family=Raleway:400,300,600', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='css/normalize.css')
     link(rel='stylesheet', href='css/skeleton.css')
+    //- custom.css isn't in your public folder at present
     link(rel='stylesheet', href='css/custom.css')
-
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
     link(rel='icon', type='image/png', href='images/favicon.png')
 
+    //- you could add defer an attr to the script 'tag' below
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
   body
     block content

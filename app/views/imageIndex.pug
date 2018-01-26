@@ -1,14 +1,19 @@
 extend ./layout.pug
 
 block content 
- main.container 
-  for im in images
-   a(href= '/images/' + im.id)
-    img.u-max-full-width(src= im.url)
-  form( 
-  action= '?_method=delete'
-  method= 'post'
-  )
-    button(type= 'submit') Delete
- 
- // img(src= val.url) 
+  main.container 
+    //- would use 'image' over 'im'
+    for image in images
+      a(href= '/images/' + image.id)
+        img.u-max-full-width(src= image.url)
+      form( 
+        action= '?_method=delete'
+        method= 'post'
+      )
+        button(type= 'submit') Delete
+
+//- I altered the formatting slightly, but how the template renders is unaffected.
+
+//- Ident for multiline attributes and iteration blocks, for readability 
+//- https://pugjs.org/language/attributes.html#multiline-attributes
+//- https://pugjs.org/language/iteration.html
