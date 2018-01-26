@@ -1,5 +1,6 @@
 # Project 2
 
+<!-- Add set-up instructions -->
 
 ## An Image/Design/Mood Board Project 
 
@@ -34,4 +35,3 @@ Back-End
 - [ ]  sort by images color and metadata   
 - [ ]  CSS animations   
 - [ ]  Sass and BEM
-

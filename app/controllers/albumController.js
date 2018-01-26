@@ -1,48 +1,50 @@
-// 'use strict'
+// prune unused files from master
 
-// const express = require('express')
-// const Album = require('../models/album')
+'use strict'
 
-// const router = express.Router()
+const express = require('express')
+const Album = require('../models/album')
 
-// //get all 
-// router.get( '/albums', ( req, res ) => {
-//   Album.find({}).
-//   then( album => { 
-//       res.render('index', {album})
-//       })
-// })
+const router = express.Router()
 
-// //create
+//get all 
+router.get( '/albums', ( req, res ) => {
+  Album.find({}).
+  then( album => { 
+      res.render('index', {album})
+      })
+})
+
+//create
   
-// router.post( '/', ( req, res ) => {
-//   Album.create( req.body ). 
-//   then( album => {
-//     Album.find({}).
-//     then( albums => { res.json(albums) })
-//    })
-// }) 
-// //update
-// //TODO 
-// router.put( '/:id', ( req, res ) => {
-//   Album.findOneAndUpdate( { _id: req.params.id }, req.body ). 
-//   then( album => { 
-//     Album.find({}).
-//     then( albums => { res.json(albums) })
-//   })
-// })
+router.post( '/', ( req, res ) => {
+  Album.create( req.body ). 
+  then( album => {
+    Album.find({}).
+    then( albums => { res.json(albums) })
+   })
+}) 
+//update
+//TODO 
+router.put( '/:id', ( req, res ) => {
+  Album.findOneAndUpdate( { _id: req.params.id }, req.body ). 
+  then( album => { 
+    Album.find({}).
+    then( albums => { res.json(albums) })
+  })
+})
 
 
   
-// //delet
+//delete
 
-// router.delete('/:id', (req, res) => {
-//   Album.
-//     findOneAndRemove({ _id: req.params.id }, req.body). 
-//     then(albums => {
-//       Album.find({}).
-//       then(albums => { res.json(albums) })
-//     })
-// })
+router.delete('/:id', (req, res) => {
+  Album.
+    findOneAndRemove({ _id: req.params.id }, req.body). 
+    then(albums => {
+      Album.find({}).
+      then(albums => { res.json(albums) })
+    })
+})
 
-// module.exports = router
+module.exports = router
