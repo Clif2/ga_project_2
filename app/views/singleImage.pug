@@ -1,6 +1,3 @@
-extend ./layout.pug 
-
 block content 
   main.container 
-    for image in data
-      img(src= #{image})
+    img.u-max-full-width(src= image.url)

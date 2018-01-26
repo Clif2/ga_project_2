@@ -1,3 +1,5 @@
+// prune unused files from master
+
 'use strict'
 
 const express = require('express')
@@ -34,7 +36,7 @@ router.put( '/:id', ( req, res ) => {
 
 
   
-//delet
+//delete
 
 router.delete('/:id', (req, res) => {
   Album.

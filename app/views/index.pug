@@ -3,16 +3,17 @@ extend ./layout.pug
 block content
   main.container
     for albums in arr
+        //- album in albums, if you follow the suggestion in index.js
         h2
           a(href= '/' + albums.name) #{albums.name}
   div.one-third.column
      form(
-      action= '/'
-      method= 'post'
+        action= '/'
+        method= 'post'
       )
         input(
-        type= 'text'
-        name= 'album[name]'
+          type= 'text'
+          name= 'album[name]'
         )
         button(type= 'submit') Add Album
 

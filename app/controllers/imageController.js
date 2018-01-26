@@ -1,3 +1,5 @@
+// prune unused files from master
+
 'use strict'
 
 const express = require('express')
@@ -7,40 +9,45 @@ const router = express.Router()
 
 //get all 
 router.get( '/images', ( req, res ) => {
-  Image.find({}).
-  then( image => { res.json( image )})
+  Image
+    .find({})
+    .then( image => { res.json( image )})
 })
 
 //create
   
 router.post( '/', ( req, res ) => {
-  Image.create( req.body ). 
-  then( image => {
-    Image.find({}).
-    then( images => { res.json(images) })
+  Image
+    .create( req.body )
+    .then( image => {
+      Image
+        .find({})
+        .then( images => { res.json(images) })
   })
 })
 
 //update
 //TODO 
 router.put( '/:id', ( req, res ) => {
-  Image.findOneAndUpdate( { _id: req.params.id }, req.body ). 
-  then( image => { 
-    Image.find({}).
-    then( images => { res.json(images) })
+  Image
+    .findOneAndUpdate( { _id: req.params.id }, req.body )
+    .then( image => { 
+      Image
+        .find({})
+        .then( images => { res.json(images) })
   })
 })
 
 
-  
-//delet
 
+//delete
 router.delete('/:id', (req, res) => {
-  Image.
-    findOneAndRemove({ _id: req.params.id }, req.body). 
-    then(images => {
-      Image.find({}).
-      then(images => { res.json(images) })
+  Image
+    .findOneAndRemove({ _id: req.params.id }, req.body)
+    .then(images => {
+      Image
+        .find({})
+        .then(images => { res.json(images) })
     })
 }) 
 
